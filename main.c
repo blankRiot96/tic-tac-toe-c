@@ -1,4 +1,17 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+
+void obtain_input() {
+    printf("Player X's move: ");
+    int chance;
+    scanf("%d", &chance);
+
+    if (!(chance > 0 && chance < 10)) {
+        printf("Input range out of bounds!");
+        exit(1);
+    }
+}
 
 void draw_board(int board[][3]) {
     // The board size, is already known
@@ -40,7 +53,10 @@ int main() {
         {0, 0, 0}
     };
     
-    draw_board(board);
+    while (1) {
+        draw_board(board);
+        obtain_input();
+    }
     return 0;
 }
 
