@@ -3,7 +3,7 @@
 #include <stdbool.h>
 
 bool all_three(int arr[]) {
-    return arr[0] == arr[1] == arr[2];
+    return (arr[0] == arr[1]) && (arr[1] == arr[2]);
 }
 
 bool is_in(int element, int arr[], int arr_size) {
@@ -19,12 +19,13 @@ bool is_in(int element, int arr[], int arr_size) {
 bool check_win(int board[][3]) {
     // Checks if the board is in a win state!
 
+
     for (int i = 0; i < 3; i++) {
         // Check for rows
         if (!(is_in(0, board[i], 3)) && all_three(board[i])) {
             printf("Row win\n");
             return true;  
-        }
+	}
 
         // Check for columns
         int cols[3] = {board[0][i], board[1][i], board[2][i]};
